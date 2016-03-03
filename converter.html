@@ -3,8 +3,10 @@
   <head>
     <style type="text/css">
       textarea {
-        width: 600px;
-        height: 150px;
+        width: 90%;
+        height: 400px;
+        font-family: monospace;
+        font-size: 1em;
       }
 
       #state {
@@ -55,9 +57,9 @@
         // \w+ - attribute name
         // = - equals sign
         // "[^"]+" - quoted string
-        // (\s*//>)? - optional whitespace and closing brace
+        // (\s*(\/)?>)? - optional whitespace and closing brace
         // \s*$ - ending whitespace and end of line
-        var re = /^\s*((\w*:)?\w+)="([^"]+)"(\s*\/>)?\s*$/;
+        var re = /^\s*((\w*:)?\w+)="([^"]+)"(\s*(\/)?>)?\s*$/;
         return re.exec(s);
       }
 
@@ -188,6 +190,8 @@
           outputText += "\n";
         }
 
+        outputText  = outputText.slice(0, -1);
+
         input.val(outputText);
         input.focus();
 
@@ -204,6 +208,8 @@
           inputText += line;
           inputText += "\n";
         }
+
+        inputText = inputText.slice(0, -1);
 
         input.val(inputText);
         input.focus();
