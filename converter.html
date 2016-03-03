@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      textarea {
+        width: 600px;
+        height: 150px;
+      }
+
+      #state {
+        width: 600px;
+      }
+
+      #convert {
+        width: 150px;
+        height: 40px;
+      }
+
+      #clear {
+        height: 40px;
+      }
+
+      #convertBack, #output {
+        display: none;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+  </head>
+  <body>
+    <!-- layout -->
+    <textarea id="input"></textarea>
+    <textarea id="output"></textarea>
+    <br />
+    <button id="convert">Convert</button>
+    <button id="convertBack">Convert back</button>
+    <button id="clear">Clear</button>
+    <br />
+    <br />
+    <textarea id="state" readonly></textarea>
+    <br />
+    <button id="test">Test</button>
+    <button id="testBack">Test back</button>
+
+    <!-- scripts -->
+    <script>
+      var input = $('#input');
+      var output = $('#output');
+      var state = $('#state');
+
+      // matches non-style line
+      // android:layout_marginTop="@dimen/regular_margin"
+      function match(s) {
+        // ^\s* - beginning of line and preceeding whitespace
+        // (\w*:)? - optional namespace
+        // \w+ - attribute name
+        // = - equals sign
+        // "[^"]+" - quoted string
+        // (\s*//>)? - optional whitespace and closing brace
+        // \s*$ - ending whitespace and end of line
+        var re = /^\s*((\w*:)?\w+)="([^"]+)"(\s*\/>)?\s*$/;
+        return re.exec(s);
+      }
+
+      // matches style line
+      // INPUT:
+      //   <item name="android:layout_height">1dp</item>
+      // OUTPUT:
+      // {
+      //   attr: "android:layout_height",
+      //   val:  "1dp"
+      // }
+      function matchItem(s) {
+        // ^\s* - beginning of line and preceeding whitespace
+        // <item> - item tag
+        // \s+ - whitespace
+        // name= - name keyword and equals sign
+        // "((\w*:)?\w+)" - optional namespace and attribute name
+        // \s*> - optional whitespace and mandatory close arrow
+        // ([^<]+) - string inside the arrows
+        // <\/item> - close item tag
+        // \s*$ - ending whitespace and end of line
+        var re = /^\s*<item\s+name="((\w*:)?\w+)"\s*>([^<]+)<\/item>\s*$/;
+        var result = re.exec(s);
+        if (result == null) return null;
+
+        return {
+          attr: result[1],
+          val: result[3]
+        };
+      }
+
+      function matchItems(lines) {
+        var outputLines = [];
+        for (line of lines) {
+          var out = matchItem(line);
+          if (out != null) {
+            var s = out.attr + '=\"' + out.val + '\"';
+            outputLines.push(s);
+          }
+        }
+        return outputLines;
+      }
+
+      function matchLines(lines) {
+        var outputText = "";
+
+        var outputLines = [];
+        for (line of lines) {
+          outputText += line + "\n";
+          var matched = match(line);
+          if (matched != null) {
+            var attr = matched[1];
+            var val = matched[3];
+            outputText += "\tattr = " + attr;
+            outputText += "\n\tval  = " + val;
+
+            var item = '<item name=\"' + attr + '\">' + val + '</item>';
+            outputLines.push(item);
+          } else {
+            outputText += "FAILED";
+          }
+          outputText += "\n";
+        }
+
+        state.val(outputText);
+        return outputLines;
+      }
+
+      function test() {
+        var lines = [
+          'abc',
+          '  =:abc',
+          'av',
+          'a abc',
+          '   margin=',
+          'android:margin',
+          'android:margin=',
+          'android:margin=f',
+          'android:margin="f"',
+          '   android:margin="f"',
+          '   margin="f"',
+          '   margin="f" />',
+          '   margin="f"/>',
+          '   margin="f" />  ',
+        ];
+
+        matchLines(lines);
+      }
+
+      function testBack() {
+        var lines = [
+          'asdf',
+          '<item>',
+          ' <item> ',
+          ' <item name="android:textCursorDrawable"></item>',
+          ' <item name="android:textCursorDrawable"> </item>',
+          '        <item name="android:textCursorDrawable">@null</item>',
+          '        <item name="android:textCursorDrawable">@null</item>  '
+        ];
+
+        var outputText = "";
+
+        for (line of lines) {
+          var out = matchItem(line);
+          if (out != null) {
+            outputText += "\tattr = " + out.attr;
+            outputText += "\n\tval = " + out.val;
+            } else {
+            outputText += "\tFAILED";
+          }
+          outputText += '\n';
+        }
+          state.val(outputText);
+      }
+
+      $('#convert').click(function() {
+        var text = input.val();
+        var outputText = "";
+
+        var lines = text.split('\n');
+        var outputLines = matchLines(lines);
+        if (outputLines.length == 0) {
+          outputLines = matchItems(lines);
+        }
+
+        for (line of outputLines) {
+          outputText += line;
+          outputText += "\n";
+        }
+
+        input.val(outputText);
+        input.focus();
+
+        state.val('done convert');
+      });
+
+      $('#convertBack').click(function() {
+        var text = output.val();
+        var inputText = "";
+
+        var lines = text.split('\n');
+        var inputLines = matchItems(lines);
+        for (line of inputLines) {
+          inputText += line;
+          inputText += "\n";
+        }
+
+        input.val(inputText);
+        input.focus();
+
+        state.val('done convert back');
+      });
+
+      $('#test').click(function() {
+        test();
+      });
+
+      $('#testBack').click(function() {
+        testBack();
+      });
+
+      $('#clear').click(function() {
+        input.val('');
+        output.val('');
+      });
+    </script>
+  </body>
+</html>
