@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {}
+
+        h3 {
+            font-weight: 600;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+
+        .copy {
+            margin-top: 15px;
+        }
+
+        .copy textarea {
+            display: none;
+        }
+
+        .launch {
+            margin-top: 15px;
+        }
+
+        .launch button {
+            font-size: 20px;
+        }
+
+        .mode-switcher {
+            margin-top: 40px;
+        }
+
+        .text-input {
+            min-width: 200px;
+        }
+
+        #dummyButton {
+            opacity: 0;
+        }
+    </style>
+    <script>
+
+        let launchUrl;
+        let mode;
+
+        function copy(id, buttonId) {
+            const text = document.querySelector(`#${id}`);
+
+            text.contentEditable = true;
+            text.readOnly = false;
+
+            text.select();
+            text.setSelectionRange(0, 99999); /*For mobile devices*/
+            document.execCommand('copy');
+            console.log('text', { text: text.value });
+            // text.disabled = true;
+
+            let dummyButton = document.querySelector('#dummyButton');
+            dummyButton.focus();
+
+            let button = document.querySelector(`#${buttonId}`);
+            button.value = 'Copied!';
+            button.disabled = true;
+        }
+
+        function copyBundle() {
+            const link = document.querySelector('#link').value;
+            const caption = document.querySelector('#caption').value;
+            const bundleValue = `${link}\n\n${caption}`;
+
+            const bundle = document.querySelector('#bundle');
+            bundle.value = bundleValue;
+
+            bundle.style.display = 'inline-block';
+            copy('bundle', 'bundleButton');
+            bundle.style.display = 'none';
+        }
+
+        function launch() {
+            const id = 'launchButton';
+            const button = document.querySelector(`#${id}`);
+            button.disabled = true;
+            button.textContent = 'Use app switcher to get back to IG';
+
+            window.location.href = launchUrl;
+        }
+
+        function setMode(newMode) {
+            console.log('setting mode', newMode);
+            mode = newMode;
+
+            const linkButton = document.querySelector('#linkButton');
+            const captionButton = document.querySelector('#captionButton');
+            const bundleButton = document.querySelector('#bundleButton');
+
+            if (mode === 'all') {
+                linkButton.style.display = 'none';
+                captionButton.style.display = 'none';
+                bundleButton.style.display = 'inline-block';
+            } else {
+                linkButton.style.display = 'inline-block';
+                captionButton.style.display = 'inline-block';
+                bundleButton.style.display = 'none';
+            }
+        }
+
+        function switchMode() {
+            setMode(mode === 'all' ? 'single' : 'all');
+        }
+
+    </script>
+</head>
+
+<body>
+    <h3>Link</h3>
+    <input id="link" class="text-input" type="input" value="https://www.nike.com/t/air-jordan-13-retro-shoe-zp4pp0/414571-404?utm_campaign=playinside&utm_medium=instagram_story&utm_source=julo15baller" />
+    <input id="linkButton" onClick="copy('link', 'linkButton')" type="button" value="Copy link" />
+
+    <h3>Tags</h3>
+    <input id="caption" class="text-input" type="input" value="#TeamNike #playinside #jdi" />
+    <input id="captionButton" onClick="copy('caption', 'captionButton')" type="button" value="Copy tags" />
+
+    <div class="copy">
+        <textarea id="bundle"></textarea>
+        <input id="bundleButton" onClick="copyBundle()" type="button" value="Copy all" />
+    </div>
+
+    <div class="launch">
+        <button id="launchButton" onclick="launch()">Launch Instagram</button>
+    </div>
+
+    <div class="mode-switcher">
+        <button onclick="switchMode()">Switch mode</button>
+    </div>
+
+    <p>Version 13</p>
+
+    <input id="dummyButton" type="button" />
+</body>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    const initialMode = params.get('mode') || 'single';
+    setMode(initialMode);
+
+    launchUrl = params.get('launchUrl') || 'instagram://';
+    console.log('starting params', { launchUrl, initialMode });
+</script>
+
+</html>
