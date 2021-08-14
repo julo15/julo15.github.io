@@ -1,5 +1,5 @@
 # Julian Lo
-**julian.lo@gmail.com** // (425) 894-1133 // Seattle, WA
+**julian.lo+recruit@gmail.com** // Seattle, WA
 
 ## Objective
 
