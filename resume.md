@@ -1,23 +1,35 @@
 # Julian Lo
-**julian.lo+recruit@gmail.com** // Seattle, WA
+**julian.lo+recruit@gmail.com** // San Diego, CA
 
 ## Objective
 
-* I'm a lead mobile and frontend developer specializing in Android, React, and TypeScript.
-* My strongest interest lies in helping startups execute with speed and robustness.
+* I'm a lead mobile and frontend developer specializing in  React, Angular, TypeScript and Android.
+* My strongest interest lies in building beautiful and robust teams and user experiences
 
 ## Skill Set
-* Android, Kotlin, Java, iOS, Swift, AWS, Firebase
-* React, Typescript, React Native
+* Typescript, React, Angular
+* Android, Kotlin, Java, React Native, iOS, Swift, AWS, Firebase
 * Gradle, Maven, Jenkins, Bitrise, Gitlab CI
 * C++, COM, Win32, XAML, C#/.NET
 
 ## Employment History
 
-### Lead Software Engineer [Nike, Inc.]
-*Seattle, WA (Oct 2019 - Present)*
+### Staff Software Engineer [Sketchy Group LLC]
+*Remote - San Diego, CA (Oct 2021 - Present)*
 
-Lead Engineer for mobile apps for Nike Athlete Studio, the platform used by Nike global brand marketing and professional contract athletes. I was the architect and lead engineer for both the iOS and Android mobile apps which was available in over 50 countries.
+Architect and lead frontend engineer for the Sketchy web app, which has helped more than 400,000 medical students achieve their dream of becoming a doctor.
+
+- Collaborate across product, design, and engineering to lead implementation in a pragmatic direction.
+- Mentor to the team across all disciplines.
+- Implemented anti-account sharing engine, which has contributed a multiple percentage points increase in revenue in the 6 months since its release.
+- Implemented progressive web app functionality into the Sketchy web app, allowing a fast native experience for students. In its first week, the PWA already accounted for 7% of all sessions.
+
+Technologies: TypeScript, Angular, PWA, GitHub Actions, AWS, NodeJS, Cypress.io
+
+### Lead Software Engineer [Nike, Inc.]
+*Seattle, WA (Oct 2019 - Sep 2021)*
+
+Lead Engineer for Nike Athlete Studio mobile apps, the platform used by Nike global brand marketing and professional contract athletes. I was the architect and lead engineer for both the iOS and Android mobile apps which was available in over 50 countries.
 
 - Implemented solutions for capturing, curating, and uploading media assets via S3 from the device to the backend.
 - Implemented core form functionality on the Athlete Studio web app, using React and `react-hook-form`.
@@ -57,7 +69,7 @@ Technologies: Android, Android Studio, Java, Node.js/Electron
 
 Engineer for the Windows Shell team, with experience working on several critical UI features on Windows 7 through 10 used by billions of users worldwide.
 
-- Built the new interactive lock screen UI for Windows 10 using C++/CX and XAML. 
+- Built the new interactive lock screen UI for Windows 10 using C++/CX and XAML.
 - Rebuilt the Windows Out-Of-Box-Experience (installation wizard) for Windows 8.
 - Built setup and configuration UI for the Windows 7 HomeGroup feature.
 
