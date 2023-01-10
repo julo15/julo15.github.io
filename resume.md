@@ -4,7 +4,7 @@
 ## Objective
 
 * I'm a lead mobile and frontend developer specializing in  React, Angular, TypeScript and Android.
-* My strongest interest lies in building beautiful and robust teams and user experiences
+* My strongest interest lies in building enjoyable and robust teams and user experiences
 
 ## Skill Set
 * Typescript, React, Angular
