@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open My App</title>
+</head>
+<body>
+    <h1>Open My App</h1>
+    <a href="moziapp://links/in/0193b6d5-4839-7087-b9b9-096fe49288f1?token=deprecated_not_used">Open via schema</a>
+    <a href="https://links.dev.mozi.app/in/0193b6d5-4839-7087-b9b9-096fe49288f1?token=deprecated_not_used">Open via universal link</a>
+    <button onclick="window.location.href='moziapp://links/in/0193b6d5-4839-7087-b9b9-096fe49288f1?token=deprecated_not_used'">Open via schema + javascript</button>
+    <div id="userAgent"></div>
+    <script>
+        const userAgent = navigator.userAgent;
+        document.getElementById('userAgent').textContent = `User Agent: ${userAgent}`;
+    </script>
+</body>
+</html>
