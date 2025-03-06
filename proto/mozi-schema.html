@@ -11,9 +11,15 @@
     <a href="https://links.dev.mozi.app/in/0193b6d5-4839-7087-b9b9-096fe49288f1?token=deprecated_not_used">Open via universal link</a>
     <button onclick="window.location.href='moziapp://links/in/0193b6d5-4839-7087-b9b9-096fe49288f1?token=deprecated_not_used'">Open via schema + javascript</button>
     <div id="userAgent"></div>
+    <div id="arc"></div>
     <script>
         const userAgent = navigator.userAgent;
         document.getElementById('userAgent').textContent = `User Agent: ${userAgent}`;
+
+        setTimeout(() => {
+          let arc = getComputedStyle(document.documentElement).getPropertyValue('--arc-palette-title') ? 'Is Arc' : 'Is Not Arc';
+          document.getElementById('arc').textContent = arc;
+        }, 2000);
     </script>
 </body>
 </html>
