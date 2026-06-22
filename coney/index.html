@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Unemployed Adventure Club · A Grand Tour of the Brooklyn Riviera</title>
+<meta name="description" content="The Unemployed Adventure Club cordially requests the pleasure of your company for an exclusive degustation & grand tour of the Brooklyn Riviera. Wednesday, the Twenty-Fourth of June. Black tie optional. Beach sandals encouraged." />
+<meta property="og:title" content="An Invitation · The Unemployed Adventure Club" />
+<meta property="og:description" content="An exclusive degustation & grand tour of the Brooklyn Riviera. Membership: 2. Combined income: $0. Standards: uncompromising." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#0b0b0d" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0b0b0d;
+    --bg2:#121118;
+    --ink:#ece6d8;
+    --muted:#a79e8b;
+    --gold:#c9a96a;
+    --gold-bright:#e7c98a;
+    --gold-deep:#9c7e44;
+    --line:rgba(201,169,106,.32);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 700px at 50% -10%, rgba(201,169,106,.10), transparent 60%),
+      radial-gradient(900px 600px at 90% 110%, rgba(201,169,106,.06), transparent 55%),
+      linear-gradient(180deg,var(--bg),var(--bg2));
+    color:var(--ink);
+    font-family:"EB Garamond","Cormorant Garamond",Georgia,serif;
+    font-size:19px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 26px;}
+
+  /* ornaments */
+  .rule{display:flex;align-items:center;justify-content:center;gap:18px;margin:38px 0;color:var(--gold);}
+  .rule::before,.rule::after{content:"";height:1px;flex:1;max-width:180px;
+    background:linear-gradient(90deg,transparent,var(--line),transparent);}
+  .rule span{font-size:15px;letter-spacing:.4em;}
+
+  .gold{color:var(--gold);}
+  .script{font-family:"Cormorant Garamond",serif;font-style:italic;}
+
+  /* hero */
+  header.hero{padding:74px 0 26px;text-align:center;}
+  .crest{
+    width:108px;height:108px;margin:0 auto 26px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--line);
+    box-shadow:0 0 0 6px rgba(201,169,106,.05), inset 0 0 30px rgba(201,169,106,.08);
+    background:radial-gradient(circle at 50% 35%, rgba(201,169,106,.14), transparent 70%);
+  }
+  .crest .mono{
+    font-family:"Playfair Display",serif;font-weight:700;font-size:34px;letter-spacing:.06em;
+    background:linear-gradient(180deg,var(--gold-bright),var(--gold-deep));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .eyebrow{font-size:13px;letter-spacing:.46em;text-transform:uppercase;color:var(--muted);margin-bottom:30px;}
+  h1{
+    font-family:"Playfair Display",serif;font-weight:600;
+    font-size:clamp(40px,9vw,72px);line-height:1.02;margin:0 0 6px;
+    background:linear-gradient(180deg,#fff7e6,var(--gold) 70%,var(--gold-deep));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .sub{font-style:italic;font-size:clamp(20px,4.4vw,27px);color:var(--ink);margin:14px 0 4px;}
+  .request{font-size:19px;color:var(--muted);max-width:30em;margin:18px auto 0;}
+
+  /* date block */
+  .date{margin:40px 0 6px;text-align:center;}
+  .date .d{font-family:"Playfair Display",serif;font-size:clamp(26px,6vw,40px);color:var(--gold-bright);letter-spacing:.02em;}
+  .date .y{font-size:14px;letter-spacing:.42em;text-transform:uppercase;color:var(--muted);margin-top:10px;}
+  .date .where{font-style:italic;color:var(--ink);margin-top:6px;}
+
+  /* membership card */
+  .card{
+    border:1px solid var(--line);border-radius:4px;
+    background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.008));
+    padding:30px 30px 24px;margin:18px 0;
+  }
+  .members{display:flex;justify-content:center;gap:42px;flex-wrap:wrap;text-align:center;margin:6px 0 4px;}
+  .members .stat .n{font-family:"Playfair Display",serif;font-size:38px;color:var(--gold-bright);line-height:1;}
+  .members .stat .l{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-top:9px;}
+
+  h2.sect{
+    font-family:"Playfair Display",serif;font-weight:600;text-align:center;
+    font-size:clamp(26px,6vw,38px);color:var(--ink);margin:8px 0 4px;letter-spacing:.01em;
+  }
+  .sect-note{text-align:center;font-style:italic;color:var(--muted);margin:0 0 6px;}
+
+  /* courses */
+  .course{padding:30px 0;border-bottom:1px solid rgba(201,169,106,.14);}
+  .course:last-child{border-bottom:none;}
+  .course .head{display:flex;align-items:baseline;gap:16px;margin-bottom:6px;}
+  .course .num{font-family:"Playfair Display",serif;font-size:15px;letter-spacing:.3em;color:var(--gold-deep);white-space:nowrap;}
+  .course h3{font-family:"Playfair Display",serif;font-weight:600;font-size:clamp(22px,5vw,29px);margin:0;color:var(--gold-bright);}
+  .course .tag{font-style:italic;color:var(--muted);font-size:16px;margin:-2px 0 14px;}
+  .dish{margin:15px 0;padding-left:18px;border-left:1px solid var(--line);}
+  .dish .name{color:var(--ink);}
+  .dish .name a{color:var(--gold);text-decoration:none;border-bottom:1px dotted var(--line);}
+  .dish .name a:hover{color:var(--gold-bright);}
+  .dish .desc{font-style:italic;color:var(--muted);font-size:16.5px;}
+  .dish .fine{display:block;font-size:13px;letter-spacing:.04em;color:var(--gold-deep);font-style:normal;margin-top:3px;}
+  .opt{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);}
+
+  /* dress / reckoning */
+  .panel{text-align:center;padding:14px 0;}
+  .panel p{max-width:32em;margin:10px auto;}
+  .reckon{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin:18px 0 6px;}
+  .reckon .item{text-align:center;min-width:130px;}
+  .reckon .item .n{font-family:"Playfair Display",serif;font-size:30px;color:var(--gold-bright);}
+  .reckon .item .l{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+  .strike{text-decoration:line-through;text-decoration-color:var(--gold-deep);color:var(--muted);}
+
+  .rsvp{text-align:center;padding:8px 0 6px;}
+  .rsvp .big{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(24px,6vw,36px);color:var(--gold-bright);}
+
+  footer{text-align:center;padding:48px 0 70px;color:var(--muted);}
+  footer .mini-crest{font-family:"Playfair Display",serif;color:var(--gold);font-size:20px;letter-spacing:.14em;}
+  footer .motto{font-style:italic;margin-top:12px;font-size:16px;}
+  footer .fine{font-size:12px;letter-spacing:.06em;color:#6f6857;margin-top:22px;line-height:1.7;}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity 1s ease,transform 1s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="crest reveal"><span class="mono">UAC</span></div>
+    <div class="eyebrow reveal">The Unemployed Adventure Club &nbsp;·&nbsp; Est. MMXXVI</div>
+    <h1 class="reveal">An Invitation</h1>
+    <p class="sub reveal">cordially requests the pleasure of your company</p>
+    <p class="request reveal">for an exclusive degustation &amp; grand tour of the&nbsp;<span class="gold">Brooklyn Riviera</span> — its amusements, its esplanade, and the storied kitchens of Little Odessa.</p>
+
+    <div class="rule reveal"><span>&#10086;</span></div>
+
+    <div class="date reveal">
+      <div class="d">Wednesday, the Twenty-Fourth of June</div>
+      <div class="y">In the year Two Thousand and Twenty-Six</div>
+      <div class="where">Coney Island &amp; Brighton Beach, by the sea</div>
+    </div>
+    <p class="script reveal" style="color:var(--muted);font-size:18px;margin-top:18px;">Arrival: half past noon — or whenever we rouse ourselves.<br>(We are, after all, unemployed.)</p>
+  </header>
+
+  <section class="card reveal">
+    <div class="members">
+      <div class="stat"><div class="n">2</div><div class="l">Members</div></div>
+      <div class="stat"><div class="n">$0</div><div class="l">Combined Income</div></div>
+      <div class="stat"><div class="n">&#8734;</div><div class="l">Free Time</div></div>
+    </div>
+    <p style="text-align:center;font-style:italic;color:var(--muted);margin:14px 0 0;">An intimate society. Membership by acclaim only. Standards: uncompromising.</p>
+  </section>
+
+  <div class="rule reveal"><span>THE PROGRAMME</span></div>
+
+  <section class="reveal">
+    <div class="course">
+      <div class="head"><span class="num">— I —</span><h3>Apéritif &amp; Amusements</h3></div>
+      <p class="tag">Upon the western pier &nbsp;·&nbsp; a light overture, taken standing</p>
+
+      <div class="dish">
+        <div class="name"><a href="https://www.google.com/maps/search/Wonder+Wheel+Coney+Island" target="_blank" rel="noopener">The Wonder Wheel</a></div>
+        <div class="desc">A private gondola ascent above the Atlantic, est. 1920. One's carriage gently sways — by design, we are assured.<span class="fine">$10 PER ASCENT · A LANDMARK</span></div>
+      </div>
+      <div class="dish">
+        <div class="name">The Gaming Salon</div>
+        <div class="desc">Games of chance and skill along the promenade. The house always wins; the prizes are nonetheless enormous and plush.<span class="fine">A FEW COINS · DIGNITY OPTIONAL</span></div>
+      </div>
+      <div class="dish">
+        <div class="name"><a href="https://www.google.com/maps/search/Spook-a-Rama+Coney+Island" target="_blank" rel="noopener">Spook-A-Rama</a></div>
+        <div class="desc">A vintage 1955 immersive theatrical experience. Patrons are conveyed by carriage through scenes of curated dread.<span class="fine">$10 · CONEY'S OLDEST DARK RIDE</span></div>
+      </div>
+      <div class="dish">
+        <div class="name"><a href="https://www.google.com/maps/search/Petes+Clam+Stop+Coney+Island" target="_blank" rel="noopener">A Ceremonial Morsel</a></div>
+        <div class="desc">A single frankfurter, halved and shared with great solemnity — <span style="font-style:normal">or</span> a dozen clams shucked to order at Pete's, should the sea call. We shall not spoil our appetites.<span class="fine">$4–8 · RESTRAINT IS THE POINT</span></div>
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="head"><span class="num">— II —</span><h3>The Grand Promenade</h3></div>
+      <p class="tag">Eastward along the esplanade &nbsp;·&nbsp; a digestive constitutional</p>
+
+      <div class="dish">
+        <div class="name"><a href="https://www.google.com/maps/search/Parachute+Jump+Coney+Island" target="_blank" rel="noopener">The Parachute Jump</a></div>
+        <div class="desc">We process beneath Brooklyn's own Eiffel Tower (1939, no longer operational — neither are we) and the complimentary outdoor antiquities: a surviving Steeplechase horse, a Cyclops, the salt air.<span class="fine">GRATIS · 2.7 MILES OF SEASIDE BOARDS</span></div>
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="head"><span class="num">— III —</span><h3>The Eurasian Degustation</h3></div>
+      <p class="tag">Through Little Odessa, beneath the elevated railway &nbsp;·&nbsp; <span class="opt">the principal affair</span></p>
+
+      <div class="dish">
+        <div class="name"><a href="https://www.google.com/maps/search/Brighton+Tandir+504+Brighton+Beach+Ave+Brooklyn" target="_blank" rel="noopener">Amuse-Bouche · Brighton Tandir</a></div>
+        <div class="desc">Hand-laminated Samarkand pastries, flame-kissed against the walls of a traditional clay hearth. The establishment maintains no website, no telephone, no listing — a discretion the truly elite will appreciate.<span class="fine">$3–4 · CASH ONLY · PUMPKIN SAMSA AT NOON</span></div>
+      </div>
+      <div class="dish">
+        <div class="name"><a href="https://www.google.com/maps/search/Tone+Cafe+265+Neptune+Ave+Brooklyn" target="_blank" rel="noopener">The Principal Course · Toné Café</a></div>
+        <div class="desc">A molten vessel of farmer's cheese, finished tableside with a quivering yolk and a generous knob of butter, beside the city's oldest Georgian clay oven. Conversation is encouraged to breathe.<span class="fine">~$14 · GEORGIAN · OUR HOUSE SELECTION</span></div>
+      </div>
+      <div class="dish">
+        <div class="name"><a href="https://www.google.com/maps/search/Tashkent+Supermarket+Brighton+Beach" target="_blank" rel="noopener">The Bazaar · Tashkent</a></div>
+        <div class="desc">An overwhelming hall of prepared delicacies, selected by gesture from the steam table among the regulars. Plov is borne ceremoniously to the boardwalk.<span class="fine">BY WEIGHT · PRICELESS, NEARLY LITERALLY</span></div>
+      </div>
+      <div class="dish">
+        <div class="name"><a href="https://www.google.com/maps/search/Bakery+La+Brioche+Brighton+Beach" target="_blank" rel="noopener">Petits Fours · La Brioche</a></div>
+        <div class="desc">A honey cake (medovik) and a Napoleon to conclude — selected from a shocking abundance of desserts, each well under ten dollars.<span class="fine">UNDER $10 · THE SWEET FINALE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule reveal"><span>&#10086;</span></div>
+
+  <section class="panel reveal">
+    <h2 class="sect">The Dress Code</h2>
+    <p class="script" style="font-size:21px;">Black tie optional. Beach sandals encouraged.<br>One may arrive draped in finery or in last night's shorts;<br>the Committee shall enforce nothing.</p>
+    <p style="color:var(--muted);">You are, after all, <span class="gold">unemployed</span>.</p>
+  </section>
+
+  <section class="card reveal">
+    <h2 class="sect" style="margin-top:0;">The Reckoning</h2>
+    <p class="sect-note">An evening of unrepentant extravagance, all told:</p>
+    <div class="reckon">
+      <div class="item"><div class="n"><span class="strike">$1,400</span></div><div class="l">As Befits Our Station</div></div>
+      <div class="item"><div class="n">~$45</div><div class="l">The Actual Sum</div></div>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-style:italic;margin:16px auto 0;max-width:30em;">Gratuity at the pirozhki cart is left entirely to your discretion. (There is no one to tip.) Cash is advised; the finest establishments do not believe in cards.</p>
+  </section>
+
+  <div class="rule reveal"><span>R.S.V.P.</span></div>
+
+  <section class="rsvp reveal">
+    <p style="color:var(--muted);margin-top:0;">Kindly convey your acceptance to the Membership Committee</p>
+    <p class="big">— that is to say, text Julian —</p>
+    <p style="color:var(--muted);">at your earliest, most leisurely convenience.</p>
+  </section>
+
+  <footer class="reveal">
+    <div class="mini-crest">&#10070; &nbsp; U · A · C &nbsp; &#10070;</div>
+    <p class="motto">"Strictly no employment. Strictly no agenda. Strictly the finest $45 in New York."</p>
+    <p class="fine">
+      THE UNEMPLOYED ADVENTURE CLUB &nbsp;·&nbsp; A SOCIETY OF TWO &nbsp;·&nbsp; FOUNDED MMXXVI<br>
+      No reservations held. No dress code enforced. No jobs, currently.<br>
+      Prices, hours &amp; the existence of any given clay oven subject to the whims of Brighton Beach.
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12});
+    els.forEach(function(e){io.observe(e);});
+  })();
+</script>
+</body>
+</html>
